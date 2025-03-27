@@ -2,10 +2,9 @@ name: Build and Push Backend
 
 on:
   push:
-    paths:
-      - 'backend/**'
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:

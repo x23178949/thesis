@@ -2,10 +2,9 @@ name: Build and Push Frontend
 
 on:
   push:
-    paths:
-      - 'todoapp/**'
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:

@@ -26,4 +26,4 @@ jobs:
           context: ./todoapp
           file: ./todoapp/Dockerfile
           push: true
-          tags: yourdockerhubusername/frontend:latest
+          tags: shayamshah23178949/frontend:latest

@@ -26,4 +26,4 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: yourdockerhubusername/backend:latest
+          tags: shayamshah23178949/backend:latest

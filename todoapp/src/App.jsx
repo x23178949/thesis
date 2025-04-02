@@ -5,7 +5,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState("");
 
-  const backendUrl = "http://34.118.205.48:8000";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const fetchTodos = async () => {
     const res = await fetch(`${backendUrl}/todos`);

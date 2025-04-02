@@ -18,7 +18,7 @@ function App() {
     if (!title.trim()) return;
 
     const newTodo = {
-      id: crypto.randomUUID(),
+      id: Date.now().toString(),
       title,
       completed: false,
     };

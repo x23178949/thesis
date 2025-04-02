@@ -5,7 +5,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState("");
 
-  const backendUrl = "http://localhost:8000"; // Update if needed
+  const backendUrl = "http://34.118.205.48:8000";
 
   const fetchTodos = async () => {
     const res = await fetch(`${backendUrl}/todos`);

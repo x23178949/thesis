@@ -1,14 +1,32 @@
-# Stage 1: Build
+# Stage 1: Build the React (Vite) app
 FROM node:18-alpine AS builder
+
 WORKDIR /app
-COPY . .
+
+# Install dependencies
+COPY package.json package-lock.json ./
 RUN npm install
+
+# Copy source code and .env for build
+COPY . .
+
+# Build the Vite app (VITE_ envs read here)
 RUN npm run build
 
-# Stage 2: Serve built files
+# Stage 2: Serve the app with `serve`
 FROM node:18-alpine
-RUN npm install -g serve
+
+# Create app directory
 WORKDIR /app
-COPY --from=builder /app/dist ./dist
+
+# Install `serve` globally
+RUN npm install -g serve
+
+# Copy production build from builder stage
+COPY --from=builder /app/dist /app/dist
+
+# Expose port 80 (standard HTTP port)
 EXPOSE 80
+
+# Serve the static files
 CMD ["serve", "-s", "dist", "-l", "80"]
